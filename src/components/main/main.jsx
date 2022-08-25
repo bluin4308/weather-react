@@ -36,7 +36,7 @@ export default class Main extends React.Component {
     const { location, messageOne, messageTwo, loading } = this.state;
     return (
       <>
-        <p>main page</p>
+        <p>Main page</p>
         <form>
           <input
             placeholder="Location"
