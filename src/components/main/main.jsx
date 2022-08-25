@@ -17,7 +17,7 @@ export default class Main extends React.Component {
     const { location } = this.state;
     const response = await fetchWrapper(location);
     if (response.error) {
-      this.setState({  messageOne: response.error });
+      this.setState({ messageOne: response.error });
     } else {
       this.setState({ loading: true });
       this.setState({
@@ -26,12 +26,6 @@ export default class Main extends React.Component {
         loading: false,
       });
     }
-    // this.setState({ loading: true });
-    // this.setState({
-    //   messageOne: ` | Temperature: ${response.temperature} | Feelslike: ${response.feelslike}`,
-    //   messageTwo: ` | Decription: ${response.description} | Region: ${response.region}`,
-    //   loading: false,
-    // });
   };
 
   componentDidMount() {

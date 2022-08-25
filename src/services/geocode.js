@@ -6,10 +6,8 @@ const geocode = (address, callback) => {
     ".json?access_token=pk.eyJ1Ijoib3RqdSIsImEiOiJjbDcyZThtdjkwamx5NDFuOTF2aW1oMDhuIn0.EZ1ULM7-jCIBhir_F3qkXw&limit=1";
   request({ url, json: true }, (error, { body }) => {
     if (error) callback("Geocoding ERROR!");
-    //если не задавать второй параметр то он undefined по умолчанию
     else if (body.features.length === 0)
       callback("Unable to find location. Try another search!");
-    //если не задавать второй параметр то он undefined по умолчанию
     else {
       const geolocation = body.features[0];
       const latitude = geolocation.center[1];
@@ -20,4 +18,4 @@ const geocode = (address, callback) => {
   });
 };
 
-module.exports = {geocode};
+module.exports = { geocode };

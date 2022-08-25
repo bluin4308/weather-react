@@ -1,4 +1,5 @@
 import React from "react";
+
 const Error = ({ error }) => {
   return (
     <>
@@ -7,4 +8,5 @@ const Error = ({ error }) => {
     </>
   );
 };
+
 export default Error;
