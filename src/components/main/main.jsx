@@ -17,7 +17,7 @@ export default class Main extends React.Component {
     const { location } = this.state;
     const response = await fetchWrapper(location);
     if (response.error) {
-      this.setState({ messageOne: response.error });
+      this.setState({ messageOne: response.error, messageTwo: null });
     } else {
       this.setState({ loading: true });
       this.setState({
