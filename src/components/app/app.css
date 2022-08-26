@@ -50,3 +50,7 @@ button {
   color: white;
   padding: 8px;
 }
+input[type="text"]{
+  font-family: GameFont, Arial;
+  font-size: 14px;
+}
