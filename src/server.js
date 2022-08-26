@@ -10,8 +10,12 @@ const options = {
   origin: "*",
 };
 app.use(cors(options));
+
 app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "../", "build")));
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 app.get("/weather", (req, res) => {
   if (!req.query.address) {
@@ -28,10 +32,6 @@ app.get("/weather", (req, res) => {
       res.send({ temperature, feelslike, description, region });
     });
   });
-});
-
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.get("/ping", function (req, res) {

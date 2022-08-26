@@ -11,14 +11,11 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "request": "^2.88.2",
-    "serve": "^14.0.1",
-    "web-vitals": "^2.1.4",
-    "concurrently": "^7.3.0"
+    "request": "^2.88.2"
   },
   "scripts": {
-    "start": "npm run server",
-    "server": "node src/server.js",
+    "start": "node src/server.js",
+    "server": "nodemon src/server.js",
     "react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
