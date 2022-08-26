@@ -17,7 +17,7 @@
     "concurrently": "^7.3.0"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"serve -s build\"",
+    "start": "npm run server",
     "server": "node src/server.js",
     "react": "react-scripts start",
     "build": "react-scripts build",
