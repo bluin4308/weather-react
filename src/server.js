@@ -3,7 +3,7 @@ const { weather } = require("./services/weather.js");
 const express = require("express");
 const path = require("path");
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 80;
 
 const cors = require("cors");
 const options = {
