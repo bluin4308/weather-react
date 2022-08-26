@@ -3,7 +3,7 @@ const { weather } = require("./services/weather.js");
 const express = require("express");
 const path = require("path");
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT;
 
 const cors = require("cors");
 const options = {
@@ -29,4 +29,6 @@ app.get("/weather", (req, res) => {
   });
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Server Running on port: ${PORT}`);
+});
