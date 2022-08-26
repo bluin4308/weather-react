@@ -1,15 +1,16 @@
 const { geocode } = require("./services/geocode.js");
 const { weather } = require("./services/weather.js");
 const express = require("express");
-
+const path = require("path");
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 4000;
 
 const cors = require("cors");
 const options = {
   origin: "*",
 };
 app.use(cors(options));
+app.use(express.static(path.join(__dirname, "/build/")));
 
 app.get("/weather", (req, res) => {
   if (!req.query.address) {
