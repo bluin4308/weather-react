@@ -10,7 +10,7 @@ export default class Main extends React.Component {
   };
 
   handleInput = (event) => {
-    this.setState({ location: event.target.value });
+    this.setState({ location: event.target.value.trim() });
   };
 
   handleSubmit = async () => {
@@ -28,6 +28,11 @@ export default class Main extends React.Component {
     }
   };
 
+  preventInputSubmit = (e) => {
+    let key = e.charCode || e.keyCode || 0;
+    if (key === 13) e.preventDefault();
+  };
+
   componentDidMount() {
     this.props.updateTitle("Main");
   }
@@ -43,6 +48,7 @@ export default class Main extends React.Component {
             type="text"
             onChange={this.handleInput}
             value={location}
+            onKeyPress={this.preventInputSubmit}
           />
           <button type="button" onClick={this.handleSubmit}>
             Search
