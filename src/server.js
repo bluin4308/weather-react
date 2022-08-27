@@ -4,16 +4,17 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 8080;
 const app = express();
-
 const cors = require("cors");
 const options = {
   origin: "*",
 };
-app.use(cors(options));
+const buildFolder = path.join(__dirname, "../", "build");
+const indexHTML = path.join(__dirname, "build", "index.html");
 
-app.use(express.static(path.join(__dirname, "../", "build")));
+app.use(cors(options));
+app.use(express.static(buildFolder));
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(indexHTML);
 });
 
 app.get("/weather", (req, res) => {
@@ -24,7 +25,9 @@ app.get("/weather", (req, res) => {
   }
   geocode(req.query.address, (error, data) => {
     if (error) return res.send({ error });
+
     const { latitude, longitude } = data;
+
     weather(latitude, longitude, (error, weather) => {
       if (error) return res.send({ error });
       const { temperature, feelslike, description, region } = weather;
